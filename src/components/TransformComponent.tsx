@@ -1,8 +1,9 @@
 import React from "react";
 import { Context } from "../store/StateContext";
 import styles from "./TransformComponent.module.css";
+import {PropsList} from '../store/interfaces/transformElementInterface';
 
-class TransformComponent extends React.Component {
+class TransformComponent extends React.Component<PropsList> {
   private wrapperRef = React.createRef<HTMLDivElement>();
   private contentRef = React.createRef<HTMLDivElement>();
 
@@ -13,7 +14,7 @@ class TransformComponent extends React.Component {
   }
 
   render() {
-    const { children } = this.props;
+    const { children, wrapperStyle, elementStyle } = this.props;
     const {
       state: {
         positionX,
@@ -30,12 +31,12 @@ class TransformComponent extends React.Component {
     const wrapperStyles = {
       width: 'fit-content',
       height: 'fit-content',
-      ...this.props.wrapperStyle,
+      ...wrapperStyle,
     }
     const elementStyles = {
       width: 'fit-content',
       height: 'fit-content',
-      ...this.props.elementStyle,
+      ...elementStyle,
     }
     return (
       <div
