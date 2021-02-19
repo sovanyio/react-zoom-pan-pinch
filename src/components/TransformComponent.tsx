@@ -27,15 +27,31 @@ class TransformComponent extends React.Component {
       WebkitTransform: `translate(${positionX}px, ${positionY}px) scale(${scale})`,
       transform: `translate(${positionX}px, ${positionY}px) scale(${scale})`,
     };
+    const wrapperStyles = {
+      width: 'fit-content',
+      height: 'fit-content',
+      ...this.props.wrapperStyle,
+    }
+    const elementStyles = {
+      width: 'fit-content',
+      height: 'fit-content',
+      ...this.props.elementStyle,
+    }
     return (
       <div
         ref={this.wrapperRef}
         className={`react-transform-component ${styles.container} ${wrapperClass}`}
+        style={{
+          ...wrapperStyles,
+        }}
       >
         <div
           ref={this.contentRef}
           className={`react-transform-element ${styles.content} ${contentClass}`}
-          style={style}
+          style={{
+            ...style,
+            ...elementStyles,
+          }}
         >
           {children}
         </div>
