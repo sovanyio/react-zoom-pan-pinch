@@ -1309,7 +1309,7 @@ var StateProvider = /** @class */ (function (_super) {
                 var _c = _this.props.defaultValues, positionX = _c.positionX, positionY = _c.positionY;
                 if ((limitToBounds && !limitToWrapper) ||
                     (centerContent && !positionX && !positionY)) {
-                    var transform = "translate(25%, 25%) scale(" + scale + ")";
+                    var transform = "scale(" + scale + ")";
                     contentComponent.style.transform = transform;
                     contentComponent.style.WebkitTransform = transform;
                     // force update to inject state to the context

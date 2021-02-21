@@ -605,7 +605,7 @@ class StateProvider extends Component<StateContextProps, StateContextState> {
         (limitToBounds && !limitToWrapper) ||
         (centerContent && !positionX && !positionY)
       ) {
-        const transform = `translate(25%, 25%) scale(${scale})`;
+        const transform = `scale(${scale})`;
         contentComponent.style.transform = transform;
         contentComponent.style.WebkitTransform = transform;
         // force update to inject state to the context
